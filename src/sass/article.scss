@@ -1,0 +1,13 @@
+@import 'variables';
+@import 'mixins';
+
+.article {
+
+  amp-img {
+    background-color: $border-color;
+  }
+
+  &__header {
+    margin-bottom: 30px;
+  }
+}

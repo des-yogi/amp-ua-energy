@@ -1,0 +1,388 @@
+@import 'variables';
+@import 'mixins';
+
+/* Basic elements */
+
+.page { // html
+
+  $block-name:                &; // #{$block-name}__element
+
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -ms-overflow-style: scrollbar;
+  -ms-text-size-adjust: 100%; // stylelint-disable-line  property-no-vendor-prefix
+  min-width: 320px;
+  min-height: 100%;
+
+  //font-size: 15px;
+
+  &__inner {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__content {
+    flex-grow: 1;
+  }
+
+  &__footer-wrapper {
+    flex-shrink: 0;
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;           // Исправляем баг в IE для min-height and flexbox (flex-direction:column)
+  flex-direction: column;  // и прижимаем footer в IE 10-11
+  margin: 0;
+  min-height: 100%;
+  color: $text-color;
+  background-color: $body-bg;
+  // Типографика!
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  text-align: left;
+  text-decoration-skip-ink: auto;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// iOS 'clickable elements' fix for role='button'
+[role='button'] {
+  cursor: pointer;
+}
+
+// Мы любим Сафари (на самом деле, нет).
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+// Avoid 300ms click delay on touch devices that support the `touch-action` CSS property.
+a,
+// area,
+button,
+[role='button'],
+input,
+label,
+select,
+// summary,
+textarea {
+  touch-action: manipulation; // Стилевая коррекция 300ms задержки (для поддерживающих браузеров)
+  margin: 0;                  // Убираем margin в Firefox и Safari
+}
+
+button,
+input {
+  overflow: visible;    // Покажем торчащее в Edge
+  text-transform: none; // Уберём наследование text transform в Firefox
+}
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button; // Коррекция проблем стилизации для Safari
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"] {
+  -webkit-appearance: listbox; // Коррекция для Mobile Safari (https://github.com/twbs/bootstrap/issues/11266)
+}
+
+textarea {
+  overflow: auto;   // Удаление верт. скролла в IE.
+  resize: vertical; // Правильное изменение размеров
+}
+
+// Мы любим Edge, это браузер! (почти)
+svg {
+  fill: currentColor;
+
+  a &,
+  button & {
+    pointer-events: none;
+  }
+
+  &:not(:root) {
+    overflow: hidden; // Скрыть выступающее за границы в IE
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration-skip-ink: inherit;
+  color: $link-color;
+  background-color: transparent;
+  transition: color 0.3s;
+
+  &:hover,
+  &:focus {
+    color: $link-color--hover;
+  }
+
+  // &:visited {
+  //   color: $link-color--hover;
+  // }
+
+  // На больших экранах телефоны-ссылки делаем обычным текстом (если надо)
+  &[href^="tel:"] {
+
+    /* @media (min-width: $screen-xl) {
+      white-space: nowrap;
+      pointer-events: none;
+      text-decoration: inherit;
+      color: inherit;
+    } */
+  }
+}
+
+// Типографика
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-family: $font-family;
+  font-weight: 700;
+  line-height: 1.2;
+  color: currentColor;
+}
+
+.h1,
+h1 {
+  margin-top: 0;
+  font-size: $font-size--h1;
+}
+
+.h2,
+h2 {
+  font-size: $font-size--h2;
+}
+
+.h3,
+h3 {
+  font-size: $font-size--h3;
+}
+
+.h4,
+h4 {
+  font-size: $font-size--h4;
+}
+
+.h5,
+h5 {
+  font-size: $font-size--h5;
+}
+
+.h6,
+h6 {
+  font-size: $font-size--h6;
+}
+
+.p,
+p,
+ul,
+ol,
+dl,
+blockquote,
+pre,
+address,
+figure {
+  //margin-top: 0.5em;
+  // margin-bottom: 0.5em;
+  color: currentColor;
+  hyphens: auto;
+
+  & + & {
+    margin-top: 0.5em;
+  }
+}
+
+.small,
+small {
+  font-size: $font-size * 0.75;
+}
+
+address {
+  font-style: normal;
+}
+
+hr {
+  box-sizing: content-box; // Проблема Firefox
+  height: 0;               // Проблема Firefox
+  overflow: visible;       // Проблема Edge и IE
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border: 0;
+  border-top: 1px solid $border-color;
+}
+
+sub,
+sup {
+  font-size: 70%;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+abbr[title] {
+  text-decoration: underline dotted;
+}
+
+blockquote {
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.clearfix {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.list-nostyled {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+
+  li::before {
+    display: none;
+  }
+}
+
+/* Кастомизируем выделение текста на сайте */
+*:not(img)::selection {
+  color: $white;
+  background-color: $main-color; /* Safari, Chrome, Opera */
+}
+
+*:not(img)::-moz-selection {
+  color: $white;
+  background-color: $main-color; /* FireFox */
+}
+
+.main {
+  padding-top: 100px;
+}
+
+.container {
+  display: block;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  background: none;
+
+  // @media (min-width: $screen-md) {
+  //   padding-left: 20px;
+  //   padding-right: 20px;
+  // }
+
+  @media (min-width: $screen-md) {
+    $padding-min: 20px; // нужный отступ от краев экрана
+    $half-screen-md: $screen-md / 2 - $padding-min;
+    // padding: 1em calc(50% - 600px); //600px - это $screen-xl / 2 - нужный отступ от края экрана
+    padding-left: calc(50% - #{$half-screen-md});
+    padding-right: calc(50% - #{$half-screen-md});
+  }
+}
+
+// Родитель. Указаны промежутки между ячейками: XS|SM|MD|LG|XL|XXL;
+// @include row($grid-gutter-width, 10px, 12px, 16px, 20px, 26px);
+.row {
+  @include row(
+    $xs-grid-gutter:  20px,
+    $sm-grid-gutter:  20px,
+    $md-grid-gutter:  $grid-gutter-width,
+    $lg-grid-gutter:  $grid-gutter-width,
+    $xl-grid-gutter:  $grid-gutter-width,
+    $xxl-grid-gutter: $grid-gutter-width
+  );
+}
+
+/* &__element {
+  @include col(); // малые ширины — 12 из 12, промежутки по умолчанию
+  @include col(sm, 6, $grid-columns, 10px);  // SM (480 по умолчанию) — 6 из 12, промежутки 10px
+  @include col(md, 4, $grid-columns, 12px);  // MD (768 по умолчанию) — 4 из 12, промежутки 12px
+  @include col(lg, 3, $grid-columns, 16px);  // LG (992 по умолчанию) — 3 из 12, промежутки 16px
+  @include col(xl, 2, $grid-columns, 20px);  // XL (1200 по умолчанию) — 2 из 12, промежутки 20px
+  @include col(xxl, 1, $grid-columns, 26px); // XXL (1800 по умолчанию) — 1 из 12, промежутки 26px
+} */
+
+//background: svg-load('img/arrow-up.svg', fill=#000, stroke=#fff);
+
+.publishedon {
+  font-size: $small-text;
+  font-weight: 700;
+  color: $text-muted;
+}
+
+.burger {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  background-position: center;
+  background-image: svg-load('../img/burger-icon.svg', fill=#000);
+
+  &:hover,
+  &:focus {
+    background-image: svg-load('../img/burger-icon.svg', fill=red);
+  }
+}

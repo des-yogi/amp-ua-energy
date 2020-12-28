@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ⚡ lang="uk" class="page">
+<head>
+  <title>AMP Boilerplate Home</title>
+  %%include('../partials/head.html', {
+      "pageType": "article"
+  })
+</head>
+<body>
+  %%include('../partials/menu.html')
+
+  <div class="page__inner">
+    <div class="page__content">
+
+      %%include('../partials/header.html', {
+          "pageType": "article"
+      })
+
+      <main class="main">
+        <div class="container">
+          <article class="article">
+            <div class="article__header">
+              <h1>Інтерес інвесторів до видобутку вуглеводнів залежатиме від того, які стимули запропонує держава</h1>
+              <div class="article__info">
+                <span class="publishedon">28 вересня 2020</span>
+              </div>
+            </div>
+            <div class="article__body">
+
+              <amp-img alt="Описание картинки"
+                src="/img/news-img.jpg"
+                width="1.5"
+                height="1"
+                layout="responsive">
+              </amp-img>
+
+              <p>We’re here to keep you on two wheels. Give us a call with any questions, comments or feedback regarding any of our products. We’re available 9am-6pm on weekdays, 9-am-5pm at weekends.</p>
+            </div>
+          </article>
+        </div>
+      </main>
+
+    </div>
+
+    <div class="page__footer-wrapper">
+      %%include('../partials/footer.html')
+    </div>
+  </div>
+</body>
+
+</html>

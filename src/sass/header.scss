@@ -1,0 +1,21 @@
+@import 'variables';
+@import 'mixins';
+
+.page-header {
+  $header-height: 60px;
+  position: fixed;
+  z-index: 100;
+  height: $header-height;
+  background-color: $body-bg;
+  border-bottom: 1px solid $border-color;
+
+  $block-name:                &; // #{$block-name}__element
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height;
+    padding: 10px 0;
+  }
+}

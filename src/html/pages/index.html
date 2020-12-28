@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ⚡ lang="uk" class="page">
+<head>
+  <title>AMP Boilerplate Home</title>
+  %%include('../partials/head.html', {
+      "pageType": "index"
+  })
+</head>
+<body>
+  %%include('../partials/menu.html')
+
+  <div class="page__inner">
+    <div class="page__content">
+
+      %%include('../partials/header.html', {
+          "pageType": "index"
+      })
+
+      <main class="main">
+        <div class="container">
+          <h1>Main page</h1>
+          <p>We’re here to keep you on two wheels. Give us a call with any questions, comments or feedback regarding any of our products. We’re available 9am-6pm on weekdays, 9-am-5pm at weekends.</p>
+
+          <div>
+            <svg width="20" height="14"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/sprite-svg.svg#burger-icon"></use></svg>
+          </div>
+        </div>
+      </main>
+
+    </div>
+
+    <div class="page__footer-wrapper">
+      %%include('../partials/footer.html')
+    </div>
+  </div>
+</body>
+
+</html>
