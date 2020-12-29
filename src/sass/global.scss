@@ -135,14 +135,15 @@ img {
 }
 
 a {
+  text-decoration: none;
   text-decoration-skip-ink: inherit;
   color: $link-color;
-  background-color: transparent;
-  transition: color 0.3s;
+  transition: all 0.3s;
 
   &:hover,
   &:focus {
-    color: $link-color--hover;
+    text-decoration: underline;
+    //color: $link-color--hover;
   }
 
   // &:visited {
@@ -174,8 +175,8 @@ h3,
 h4,
 h5,
 h6 {
-  margin-top: 1em;
-  margin-bottom: 0.5em;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
   font-family: $font-family;
   font-weight: 700;
   line-height: 1.2;
@@ -222,14 +223,10 @@ blockquote,
 pre,
 address,
 figure {
-  //margin-top: 0.5em;
-  // margin-bottom: 0.5em;
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
   color: currentColor;
   hyphens: auto;
-
-  & + & {
-    margin-top: 0.5em;
-  }
 }
 
 .small,
@@ -266,9 +263,43 @@ abbr[title] {
 }
 
 blockquote {
+  position: relative;
   padding: 0;
-  margin-left: 0;
-  margin-right: 0;
+  margin: 1.5em 0;
+
+  &::before {
+    display: block;
+    content: "";
+    width: 40px;
+    height: 26px;
+    background: url(./img/quotes.svg) left center / 40px 26px no-repeat;
+
+    @media (min-width: $screen-md) {
+      position: absolute;
+      width: 60px;
+      height: 50px;
+      background: url(./img/quotes.svg) left top 0.5em / 40px 26px no-repeat;
+    }
+  }
+
+  p {
+
+    @media (min-width: $screen-md) {
+      position: relative;
+      padding-left: 80px;
+
+      &::before {
+        display: block;
+        content: "";
+        position: absolute;
+        left: 60px;
+        top: 0;
+        width: 1px;
+        height: 100%;
+        background-color: $main-color;
+      }
+    }
+  }
 }
 
 .visually-hidden {
@@ -367,7 +398,15 @@ blockquote {
 .publishedon {
   font-size: $small-text;
   font-weight: 700;
+  text-decoration: none;
   color: $text-muted;
+}
+
+.special-title {
+  margin-top: 0;
+  margin-bottom: 1em;
+  font-size: 30px;
+  font-weight: 300;
 }
 
 .burger {

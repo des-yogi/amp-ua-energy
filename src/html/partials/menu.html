@@ -1,15 +1,71 @@
-<amp-sidebar id="header-sidebar" layout="nodisplay">
-  <div class="menu-header">
+<amp-sidebar id="header-sidebar" class="menu" layout="nodisplay">
+  <div class="menu__header">
+    <ul class="list-nostyled  menu__lang">
+      <li class="active">
+        <a>Укр</a>
+      </li>
+      <li>
+        <a href="#">Eng</a>
+      </li>
+    </ul>
     <button type="button" aria-label="close sidebar" on="tap:header-sidebar.toggle" tabindex="0" class="menu-close-button">✕</button>
   </div>
-  <nav class="menu">
-    <ul class="label">
-      <li class="logo">
+  <div class="menu__search">
+    <form id="search-form"
+      method="post"
+      action-xhr="https://example.com/search"
+      target="_top">
+      <div class="menu__search-group">
+        <label class="menu__search-lbl">
+          <input type="search" name="search" placeholder="Пошук">
+        </label>
+        <button class="menu__search-btn" type="submit" aria-label="Пошук"></button>
+      </div>
+    </form>
+  </div>
+  <nav class="menu__nav">
+    <ul class="list-nostyled  menu__nav-list">
+      <li class="active"><a href="/news.html">Новини</a></li>
+      <li class="has-child">
+        <amp-accordion
+          class="menu__dropdown"
+          expand-single-section
+          animate>
+          <section class="menu__section">
+            <h4 style="padding-right:0;background-color:#fff;border:none;">
+              <div class="menu__btn">
+                <a href="#">Матеріали</a>
+              </div>
+            </h4>
+            <ul class="list-nostyled menu__submenu">
+              <li><a href="/contact.html">Подменю 1</a></li>
+              <li><a href="/contact.html">Подменю 2</a></li>
+              <li><a href="/contact.html">Подменю 3</a></li>
+            </ul>
+          </section>
+        </amp-accordion>
       </li>
-      <li><a href="/blog-listing.html">Blog</a></li>
-      <!-- <li><a href="/contact.html">Contact us</a></li> -->
+      <li><a href="/contact.html">Спецтема</a></li>
+      <li><a href="/contact.html">Інтерв'ю</a></li>
+      <li><a href="/contact.html">Інфографіка</a></li>
+      <li><a href="/contact.html">Про нас</a></li>
     </ul>
   </nav>
-  <h3>follow us</h3>
-
+  <ul class="list-nostyled menu__socials">
+    <li>
+      <a href="https://www.facebook.com/uaenergy" class="menu__socials-link menu__socials-link--fb" target="_blank" rel="nofollow noopener">
+        <span class="visually-hidden">Facebook</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://twitter.com/UkrainianEnergy" class="menu__socials-link menu__socials-link--tw" target="_blank" rel="nofollow noopener">
+        <span class="visually-hidden">Twitter</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.youtube.com/user/UAenergy" class="menu__socials-link menu__socials-link--ytb" target="_blank" rel="nofollow noopener">
+        <span class="visually-hidden">Youtube</span>
+      </a>
+    </li>
+  </ul>
 </amp-sidebar>

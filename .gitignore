@@ -2,6 +2,7 @@ node_modules
 .package-lock.json
 package-lock.json
 design/
+docs/
 dist/*
 src/css
 .DS_Store

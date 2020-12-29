@@ -2,12 +2,83 @@
 @import 'mixins';
 
 .article {
+  padding-bottom: 60px;
+  border-bottom: 1px solid $border-color;
 
   amp-img {
+    margin: 1.5em 0;
     background-color: $border-color;
   }
 
   &__header {
     margin-bottom: 30px;
+  }
+
+  &__body {
+    padding-bottom: 20px;
+    border-bottom: 1px solid $border-color;
+  }
+
+  &__tags {
+    padding: 40px 0;
+    color: $main-color;
+
+    span,
+    ul,
+    li {
+      display: inline-block;
+      vertical-align: baseline;
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-left: 10px;
+    }
+  }
+
+  &__social-share {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 75px;
+    font-size: 14px;
+    font-weight: 700;
+    color: $white;
+    background-color: $main-color;
+
+    span {
+      padding: 30px 35px;
+    }
+  }
+
+  &__social-share-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0 35px;
+    font-size: 0;
+    list-style: none;
+
+    li + li {
+      margin-left: 10px;
+    }
+
+    amp-social-share {
+      width: 32px;
+      height: 32px;
+    }
+
+    .amp-social-share-facebook,
+    .amp-social-share-twitter {
+      background-color: transparent;
+    }
   }
 }

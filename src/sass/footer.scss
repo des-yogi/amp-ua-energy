@@ -2,5 +2,126 @@
 @import 'mixins';
 
 .page-footer {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+  color: $white;
+  background-color: $black;
 
+  $block-name:                &; // #{$block-name}__element
+
+  .logo {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 50px;
+
+    svg {
+      width: 170px;
+      height: 30px;
+      fill: $white;
+    }
+  }
+
+  &__apps {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    li + li {
+      margin-left: 15px;
+    }
+
+    span,
+    a {
+      display: flex;
+      align-items: center;
+      min-width: 119px;
+      min-height: 37px;
+
+      &.page-footer__apps-link {
+        border-radius: 5px;
+        border: 1px solid #262626;
+
+        &:hover,
+        &:focus {
+          border-color: $border-color;
+        }
+      }
+    }
+  }
+
+  &__nav {
+    margin-bottom: 40px;
+  }
+
+  &__nav-list {
+
+    li + li {
+      margin-top: 10px;
+    }
+
+    li.active {
+
+      a {
+        color: $link-color;
+        pointer-events: none;
+      }
+    }
+
+    a {
+      display: inline-block;
+      vertical-align: top;
+      padding: 5px 20px;
+      font-weight: 700;
+      color: inherit;
+    }
+  }
+
+  &__partners {
+    margin-bottom: 40px;
+  }
+
+  &__partners-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    li + li {
+      margin-left: 20px;
+    }
+
+    a {
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+
+  &__partners-title {
+    margin-top: 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: $text-muted;
+  }
+
+  &__dev {
+
+    a {
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+
+  &__copyrights {
+    padding-top: 25px;
+    font-size: 11px;
+    line-height: 1.75;
+    border-top: 1px solid $gray-darker;
+  }
 }
