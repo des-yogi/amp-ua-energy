@@ -4,6 +4,7 @@ package-lock.json
 design/
 docs/
 dist/*
+docs/
 src/css
 .DS_Store
 .vscode/
