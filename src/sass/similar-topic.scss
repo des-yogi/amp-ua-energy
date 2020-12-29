@@ -1,0 +1,40 @@
+@import 'variables';
+@import 'mixins';
+
+.similar-topic {
+  padding: 45px 0;
+
+  $block-name:                &; // #{$block-name}__element
+
+  &__item {
+
+    & + & {
+      margin-top: 2em;
+    }
+  }
+
+  &__link,
+  &__text {
+    display: block;
+  }
+
+  &__link {
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+
+      .similar-topic__text {
+        color: $link-color;
+      }
+    }
+
+    .similar-topic__text {
+      color: $text-color;
+    }
+
+    .publishedon {
+      margin-top: 1em;
+    }
+  }
+}
