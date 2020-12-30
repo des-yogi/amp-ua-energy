@@ -1,0 +1,69 @@
+@import 'variables';
+@import 'mixins';
+
+.news-card {
+
+  $block-name:                &; // #{$block-name}__element
+
+  &__wrapper {
+    margin-bottom: 40px;
+  }
+
+  &__list {
+
+    li + li {
+      margin-top: 20px;
+    }
+  }
+
+  &__link {
+    display: block;
+    color: $text-color;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: $link-color;
+
+      #{$block-name}__overlay {
+
+        &::before {
+          background-color: rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+  }
+
+  &__overlay {
+    position: relative;
+    margin-bottom: 12px;
+    background-color: $light-bg;
+
+    &::before {
+      display: block;
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0);
+      transition: background-color 0.3s ease;
+      pointer-events: none;
+    }
+  }
+
+  &__section-name:not(:empty) {
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $link-color;
+  }
+
+  &__title {
+    margin: 0 0 8px;
+    color: currentColor;
+  }
+}

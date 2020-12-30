@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ⚡ lang="uk" class="page">
 <head>
-  <title>AMP Boilerplate Home</title>
+  <title>UA Energy Home</title>
   %%include('../partials/head.html', {
       "pageType": "index"
   })
@@ -18,14 +18,71 @@
 
       <main class="main">
         <div class="container">
-          <h1>Main page</h1>
-          <p>We’re here to keep you on two wheels. Give us a call with any questions, comments or feedback regarding any of our products. We’re available 9am-6pm on weekdays, 9-am-5pm at weekends.</p>
-
-          <div>
-            <svg width="20" height="14"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/sprite-svg.svg#burger-icon"></use></svg>
-          </div>
+          <h1 class="visually-hidden">Українська Енергетика | Главная</h1>
+          %%include('../partials/last-news.html', {
+            "pageType": "index"
+          })
         </div>
+
+        <section class="container  hot-news-card__wrapper">
+          <h2 class="visually-hidden">Важливі новини</h2>
+
+          <ul class="list-nostyled  hot-news-card__list">
+            <li>
+              %%include('../partials/hot-news-card.html', {
+                "pageType": "index",
+                "title": "Рекордна енергомодернізація: багатоповерховий будинок-“термос” із сонячними панелями і вітряками"
+              })
+            </li>
+            <li>
+              %%include('../partials/hot-news-card.html', {
+                "pageType": "index",
+                "title": "Прос’юмери в Україні: що потрібно домашнім СЕС"
+              })
+            </li>
+          </ul>
+        </section>
+
+        <section class="container  news-card__wrapper">
+          <h2 class="visually-hidden">Новини</h2>
+
+          <ul class="list-nostyled  news-card__list">
+            <li>
+              %%include('../partials/news-card.html', {
+                "pageType": "index",
+                "caption": "Аналітика",
+                "title": "Рекордна енергомодернізація: багатоповерховий будинок-“термос” із сонячними панелями і вітряками"
+              })
+            </li>
+            <li>
+              %%include('../partials/news-card.html', {
+                "pageType": "index",
+                "caption": "",
+                "title": "Прос’юмери в Україні: що потрібно домашнім СЕС"
+              })
+            </li>
+            <li>
+              %%include('../partials/news-card.html', {
+                "pageType": "index",
+                "caption": "Аналітика",
+                "title": "Рекордна енергомодернізація: багатоповерховий будинок-“термос” із сонячними панелями і вітряками"
+              })
+            </li>
+            <li>
+              %%include('../partials/news-card.html', {
+                "pageType": "index",
+                "caption": "",
+                "title": "Прос’юмери в Україні: що потрібно домашнім СЕС"
+              })
+            </li>
+          </ul>
+        </section>
+
       </main>
+
+      %%include('../partials/special-projects.html', {
+        "pageType": "index"
+      })
 
     </div>
 
