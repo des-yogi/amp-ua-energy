@@ -88,7 +88,7 @@
 
   &__nav {
 
-    ul.menu__nav-list > li {
+    ul.menu__nav-list > li:not(:last-child) {
       border-bottom: 1px solid $border-color;
     }
 
@@ -160,7 +160,7 @@
     justify-content: center;
     margin-top: 40px;
     padding-top: 15px;
-    border-top: 1px solid $border-color;
+    border-top: 4px solid $main-color;
 
     li + li {
       margin-left: 15px;

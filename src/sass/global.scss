@@ -397,15 +397,20 @@ blockquote {
 
 .publishedon {
   font-size: $small-text;
-  font-weight: 700;
   line-height: 2em;
   text-decoration: none;
   color: $text-muted;
+
+  span {
+    font-weight: 400;
+    color: $main-color;
+  }
 }
 
 .special-title {
   margin-top: 0;
-  margin-bottom: 1em;
+  margin-bottom: 0;
+  padding-bottom: 1em;
   font-size: 30px;
   font-weight: 300;
 }
