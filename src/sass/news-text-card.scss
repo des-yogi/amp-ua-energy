@@ -1,0 +1,26 @@
+@import 'variables';
+@import 'mixins';
+
+.news-text-card {
+  color: $text-color;
+
+  $block-name:                &; // #{$block-name}__element
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+
+    #{$block-name}__title {
+      color: $link-color;
+    }
+  }
+
+  &__title {
+    margin-top: 0;
+    transition: color 0.3s ease;
+  }
+
+  &__text:empty {
+    display: none;
+  }
+}

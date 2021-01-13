@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html ⚡ lang="en" class="page">
+<head>
+  <title>News page</title>
+  %%include('../partials/head.html', {
+      "pageType": "news"
+  })
+</head>
+<body>
+  %%include('../partials/menu.html')
+
+  <div class="page__inner">
+    <div class="page__content">
+
+      %%include('../partials/header.html')
+      <main class="main">
+        <div class="container news">
+          <h1 class="visually-hidden">Сторинка новин</h1>
+
+          <section class="news__block">
+            <h2 class="special-title news__title">Головне</h2>
+
+            <ul class="list-nostyled  news__list">
+              <li class="news__item">
+                %%include('../partials/news-text-card.html', {
+                  "pageType": "news",
+                  "title": "Міненерго придумало, як знизити ціну на газ для 'вразливих' споживачів майже вполовину",
+                  "text": ""
+                })
+              </li>
+              <li class="news__item">
+                %%include('../partials/news-text-card.html', {
+                  "pageType": "news",
+                  "title": "«Укренерго» отримає три кредити від держбанків для погашення боргів перед «ГарПоком»",
+                  "text": ""
+                })
+              </li>
+              <li class="news__item">
+                %%include('../partials/news-text-card.html', {
+                  "pageType": "news",
+                  "title": "Рекордна енергомодернізація: багатоповерховий будинок-термос із сонячними панелями і вітряками",
+                  "text": ""
+                })
+              </li>
+              <li class="news__item">
+                %%include('../partials/news-text-card.html', {
+                  "pageType": "news",
+                  "title": "У Полтавській області вибухнув магістральний газопровід",
+                  "text": ""
+                })
+              </li>
+              <li class="news__item">
+                %%include('../partials/news-text-card.html', {
+                  "pageType": "news",
+                  "title": "Уряд затвердив остаточні проекти угод про розподіл вуглеводнів",
+                  "text": ""
+                })
+              </li>
+            </ul>
+          </section>
+
+          <section class="news__block">
+            <h2 class="special-title news__title">Новини</h2>
+
+            <ul class="list-nostyled  news__list">
+              <li class="news__item  news__item--current">
+                %%include('../partials/news-text-card.html', {
+                  "pageType": "news",
+                  "title": "За рік в Україні здешевшали усі види моторного пального окрім скрапленого газу",
+                  "text": "Держстат порівняв дані грудня минулого року до відповідного періоду 2019 року"
+                })
+              </li>
+              <li class="news__item  news__item--current">
+                %%include('../partials/news-text-card.html', {
+                  "pageType": "news",
+                  "title": "Разумков сьогодні збере голів фракцій на нараду щодо тарифів",
+                  "text": "Голова Верховної Ради Дмитро Разумков планує скликати в середу (13 січня) о 16:00 нараду голів парламентських фракцій і груп для продовження консультацій з питань реформи енергетичного ринку і підвищення тарифів."
+                })
+              </li>
+              <li class="news__item  news__item--current">
+                %%include('../partials/news-text-card.html', {
+                  "pageType": "news",
+                  "title": "Кличко: Тарифи на тепло і гарячу воду для киян не зросли",
+                  "text": "Мер столиці Віталій Кличко заявив, що мешканці багатоквартирних будинків сплачуватимуть за комунальні послуги за тарифами ще 2019 року."
+                })
+              </li>
+              <li class="news__item  news__item--current">
+                %%include('../partials/news-text-card.html', {
+                  "pageType": "news",
+                  "title": "Перший енергоблок БєлАЕС працює на 100% потужності",
+                  "text": "12 січня перший енергоблок Білоруської атомної електростанції виведений на номінальний рівень потужності."
+                })
+              </li>
+            </ul>
+          </section>
+
+        </div>
+      </main>
+
+      %%include('../partials/special-projects.html', {
+        "pageType": "news"
+      })
+
+    </div>
+
+    <div class="page__footer-wrapper">
+      %%include('../partials/footer.html')
+    </div>
+  </div>
+</body>
+
+</html>
